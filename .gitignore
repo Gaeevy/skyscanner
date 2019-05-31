@@ -1,0 +1,8 @@
+# IntellijIdea files
+*.iml
+.idea
+
+# Logs
+*.log
+
+__pycache__/
