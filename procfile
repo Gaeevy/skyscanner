@@ -1,1 +1,1 @@
-clock: python scanner.py
+clock: python -u scanner.py

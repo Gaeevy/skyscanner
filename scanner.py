@@ -1,20 +1,20 @@
 from sources import get_response
 from parsers import get_flights_details
 import sys
+import datetime
 from apscheduler.schedulers.blocking import BlockingScheduler
 
 
 sched = BlockingScheduler()
 
 
-@sched.scheduled_job('interval', minutes=10)
+@sched.scheduled_job('interval', seconds=30)
 def timed_job():
-    source = get_response(pattern_url)
-    flights = get_flights_details(source)
-    print(flights)
+    # source = get_response(pattern_url)
+    # flights = get_flights_details(source)
+    # print(flights)
+    print('Hello, world! {}'.format(datetime.datetime.now()))
     sys.stdout.flush()
-
-
 
 
 depart = 'reyk'
