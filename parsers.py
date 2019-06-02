@@ -1,5 +1,6 @@
 from lxml import html
 import lxml.etree as et
+import datetime
 
 items_xpath = '//ul[contains(@class, "day-list")]/li[contains(@class, "day-list-item")]'
 
@@ -19,6 +20,8 @@ price_xpath = './/a[contains(@class, "price")]'
 def get_flights_details(source):
     tree = html.fromstring(source, parser=et.HTMLParser(remove_comments=True))
     items = tree.xpath(items_xpath)
+    print('{} got {} items:'.format(datetime.datetime.now(), len(items)))
+
     flights = []
     for item in items:
         flight = {}
@@ -49,4 +52,5 @@ def get_flights_details(source):
 
         flights.append(flight)
 
+    print('{} got flights details:'.format(datetime.datetime.now()))
     return flights

@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import datetime
 
 
 def get_response(URL):
@@ -12,6 +13,7 @@ def get_response(URL):
             EC.presence_of_element_located((By.ID, "header-list-count"))
         )           # wait for page loading
         response = driver.page_source
+        print('{} got response:'.format(datetime.datetime.now()))
     finally:
         driver.quit()
     return response
